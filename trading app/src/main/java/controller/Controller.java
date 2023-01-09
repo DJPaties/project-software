@@ -47,17 +47,23 @@ public class Controller {
 
     public boolean modifyUserName(User user, String newName) {
        ArrayList<User> allUsers = fa.readUsers();
-        if (!allUsers.contains(user)) {
+        
+        boolean userExist = false;
+        for (int i = 0; i < allUsers.size(); i++) {
+            if (allUsers.get(i).getName().equals(user.getName())) {
+                userExist = true;
+            }
+        }
+        if (userExist == false) {
             return false;
         }
 
-        allUsers.remove(user);
         fa.clearFile("Users.txt");
 
         for (int i = 0; i < allUsers.size(); i++) {
-            if (allUsers.get(i).equals(user)) {
-                user.setName(newName);
-                fa.writeToFile("Users.txt", user.toString());
+            if (allUsers.get(i).getName().equals(user.getName())) {
+                allUsers.get(i).setName(newName);
+                fa.writeToFile("Users.txt", allUsers.get(i).toString());
 
             } else {
                 fa.writeToFile("Users.txt", allUsers.get(i).toString());
@@ -71,21 +77,29 @@ public class Controller {
 
     public boolean modifyUserPassword(User user, String newPassword) {
         ArrayList<User> allUsers = fa.readUsers();
-
-        if (!allUsers.contains(user)) {
+        
+        
+        boolean userExist = false;
+        for (int i = 0; i < allUsers.size(); i++) {
+            if (allUsers.get(i).getName().equals(user.getName())) {
+                userExist = true;
+            }
+        }
+        System.out.println(userExist);
+        if (userExist == false) {
             return false;
         }
 
-        allUsers.remove(user);
-        fa.clearFile("Stocks.txt");
+        fa.clearFile("Users.txt");
 
         for (int i = 0; i < allUsers.size(); i++) {
-            if (allUsers.get(i).equals(user)) {
-                user.setPassword(newPassword);
-                fa.writeToFile("Stocks.txt", user.toString());
+            if (allUsers.get(i).getName().equals(user.getName())) {
+                allUsers.get(i).setPassword(newPassword);
+                System.out.println(allUsers);
+                fa.writeToFile("Users.txt", allUsers.get(i).toString());
 
             } else {
-                fa.writeToFile("Stocks.txt", allUsers.get(i).toString());
+                fa.writeToFile("Users.txt", allUsers.get(i).toString());
 
             }
 
