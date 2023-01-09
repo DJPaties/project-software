@@ -54,7 +54,7 @@ public class homepage extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(204, 0, 204));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 0, 204));
-        jLabel1.setText("Trading Application /Buy Sell Trade!");
+        jLabel1.setText("Trading Application /Buy Sell and Trade!");
 
         login.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         login.setText("Log In");
