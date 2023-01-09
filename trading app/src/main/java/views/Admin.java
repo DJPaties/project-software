@@ -38,6 +38,9 @@ public class Admin extends javax.swing.JFrame {
         panelmodify.setVisible(false);
         newnamepanel.setVisible(false);
         newpasspanel.setVisible(false);
+        fa = new FileAccess();
+        ca = new Controller();
+        sa = new StockController();
     }
 
     /**
@@ -739,12 +742,12 @@ public class Admin extends javax.swing.JFrame {
         if(!n.isEmpty() || !p.isEmpty() || !q.isEmpty()){
             Stock s = new Stock(n, Double.parseDouble(p), Integer.parseInt(q));
             if(sa.addStock(s) ){
-                JOptionPane.showMessageDialog(null, "Added User", "Success", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Added Stock", "Success", JOptionPane.INFORMATION_MESSAGE);
             }else{
-            JOptionPane.showMessageDialog(null, "Can't add User", "Failed", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Can't add Stock", "Failed", JOptionPane.ERROR_MESSAGE);
         }
         }else{
-            JOptionPane.showMessageDialog(null, "Enter User Name and Password", "Failed", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Enter Stock Name, Price or Quantity", "Failed", JOptionPane.ERROR_MESSAGE);
         }
         
     }//GEN-LAST:event_jButton8ActionPerformed
@@ -752,19 +755,14 @@ public class Admin extends javax.swing.JFrame {
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:\
         String n = name.getText();
-        Stock s=null;
+        
         if(!n.isEmpty()){
-            for(int i=0; i<fa.readStocks().size();i++){
-                if(n.equals(fa.readStocks().get(i).getName())){
-                    s= fa.readStocks().get(i);
-                    break;
-                }
-            }
-            if(sa.removeStock(s)){
+            if(sa.removeStock(n)){
                 JOptionPane.showMessageDialog(null, "Removed Stock", "Success", JOptionPane.INFORMATION_MESSAGE);
             }else{
             JOptionPane.showMessageDialog(null, "Can't remove Stock\n Stock not found or error occured.", "Failed", JOptionPane.ERROR_MESSAGE);
         }
+            
         }else{
             JOptionPane.showMessageDialog(null, "Enter Stock Name", "Failed", JOptionPane.ERROR_MESSAGE);
         }
@@ -775,19 +773,14 @@ public class Admin extends javax.swing.JFrame {
         String n = sname.getText();
         String price = newprice.getText();
         
-        Stock s=null;
+        
         if(!n.isEmpty() && !price.isEmpty()){
-            for(int i=0; i<fa.readStocks().size();i++){
-                if(n.equals(fa.readStocks().get(i).getName())){
-                    s= fa.readStocks().get(i);
-                    break;
-                }
-            }
-            if(sa.modifyStockPrice(s, Double.parseDouble(price))){
+            if(sa.modifyStockPrice(n, Double.parseDouble(price))){
                 JOptionPane.showMessageDialog(null, "Modified Stock", "Success", JOptionPane.INFORMATION_MESSAGE);
             }else{
             JOptionPane.showMessageDialog(null, "Can't modify Stock\n Stock not found or error occured.", "Failed", JOptionPane.ERROR_MESSAGE);
         }
+            
         }else{
             JOptionPane.showMessageDialog(null, "Enter Stock Name", "Failed", JOptionPane.ERROR_MESSAGE);
         }
@@ -798,19 +791,14 @@ public class Admin extends javax.swing.JFrame {
         String n =stockn.getText();
         String quan= newq.getText();
         
-        Stock s=null;
+        
         if(!n.isEmpty() && !quan.isEmpty()){
-            for(int i=0; i<fa.readStocks().size();i++){
-                if(n.equals(fa.readStocks().get(i).getName())){
-                    s= fa.readStocks().get(i);
-                    break;
-                }
-            }
-            if(sa.modifyStockPrice(s, Double.parseDouble(quan))){
+            if(sa.modifyStockQuantity(n, Integer.parseInt(quan))){
                 JOptionPane.showMessageDialog(null, "Modified Stock", "Success", JOptionPane.INFORMATION_MESSAGE);
             }else{
             JOptionPane.showMessageDialog(null, "Can't modify Stock\n Stock not found or error occured.", "Failed", JOptionPane.ERROR_MESSAGE);
         }
+            
         }else{
             JOptionPane.showMessageDialog(null, "Enter Stock Name", "Failed", JOptionPane.ERROR_MESSAGE);
         }

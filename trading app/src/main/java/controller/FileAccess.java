@@ -55,6 +55,7 @@ public class FileAccess {
                 if (counter % 2 == 0) {
                     data = line.split("\t");
                     User user = new User(data[0], Integer.parseInt(data[1]), data[2]);
+                    System.out.println("Hakuna: "+user);
                     users.add(user);
                 }
                 counter++;

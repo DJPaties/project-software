@@ -146,9 +146,11 @@ public class Login extends javax.swing.JFrame {
                 us.setVisible(true);
                 this.dispose();
                 break;
+            }else{
+                JOptionPane.showMessageDialog(null, "Wrong Username or Password", "Can't Login",JOptionPane.WARNING_MESSAGE);
             }
         }}else{
-            JOptionPane.showMessageDialog(null, "Enter Username or Password", "Can't Login",HEIGHT);
+            JOptionPane.showMessageDialog(null, "Enter Username or Password", "Can't Login",JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 

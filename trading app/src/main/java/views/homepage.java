@@ -21,7 +21,7 @@ public class homepage extends javax.swing.JFrame {
     /**
      * Creates new form homepage
      */
-    public FileAccess fa;
+    public static FileAccess fa;
    
     public homepage() {
         initComponents();
@@ -48,7 +48,6 @@ public class homepage extends javax.swing.JFrame {
         admin = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,13 +99,6 @@ public class homepage extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(204, 0, 204));
         jLabel5.setText("Easy and Effiecient!");
 
-        jButton2.setText("jButton2");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -137,10 +129,6 @@ public class homepage extends javax.swing.JFrame {
                 .addGap(427, 427, 427)
                 .addComponent(jLabel5)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(288, 288, 288))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,9 +146,7 @@ public class homepage extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(63, 63, 63)
-                .addComponent(jButton2)
-                .addGap(72, 72, 72)
+                .addGap(158, 158, 158)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(admin)
                     .addComponent(jLabel4)))
@@ -188,12 +174,6 @@ public class homepage extends javax.swing.JFrame {
         admincreds ac = new admincreds();
         ac.setVisible(true);
     }//GEN-LAST:event_adminActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        userpage up = new userpage();
-        up.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void viewStocksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewStocksActionPerformed
         // TODO add your handling code here:
@@ -254,7 +234,6 @@ public class homepage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton admin;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
